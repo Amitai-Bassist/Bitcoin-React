@@ -1,0 +1,33 @@
+.app-header {
+    background-color: gold;
+    color: #222222;
+
+    > section {
+        display: flex;
+        align-items: center;
+
+        h1.logo {
+            flex-grow: 1;
+            font-weight: 600;
+        }
+
+        .back {
+            flex-grow: 1;
+        }
+
+        nav {
+            // gap: 15/px;
+            a {
+                &:not(:last-child) {
+                    margin-right: 15px;
+    
+                }
+
+                &.active {
+                    color: blue;
+                }
+
+            }
+        }
+    }
+}
