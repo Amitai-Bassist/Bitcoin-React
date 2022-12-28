@@ -45,17 +45,11 @@ export class ContactFilter extends Component {
         const { filterBy } = this.state
         if (!filterBy) return <div>Loading...</div>
 
-        const { name,phone } = filterBy
+        const { name } = filterBy
         return (
             <form className='robot-filter'>
-                <section>
-                    <label htmlFor="name">name</label>
                     <input ref={this.handleRef} onChange={this.handleChange} value={name} type="text" name="name" id="name" />
-                </section>
-                <section>
-                    <label htmlFor="phone">phone</label>
-                    <input ref={this.typeInputRef} onChange={this.handleChange} value={phone} type="text" name="phone" id="phone" />
-                </section>
+                    <button>🔍</button>
             </form>
         )
     }

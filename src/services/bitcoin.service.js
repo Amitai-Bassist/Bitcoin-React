@@ -3,7 +3,7 @@ import axios from "axios";
 export const bitcoinService = {
     getBitcoin,
     getAvgBlockSize,
-    // getAvgBtcToUsd,
+    getAvgBtcToUsd,
   
   };
 
@@ -16,10 +16,51 @@ async function getBitcoin(coins){
     }
 }
 
-async function getAvgBlockSize(coins){
-    try{
-
-    } catch (error){
-        console.log(error);
+async function getAvgBlockSize() {
+    try {
+      const response = await (
+        await axios.get(
+          `https://api.blockchain.info/charts/avg-block-size?timespan=5months&format=json&cors=true`
+        )
+      ).data;
+      let res = [];
+      if (response.values.length > 100) {
+        res = response.values.reduce((acc,val, idx) => {
+          if (idx % 10 === 0) {
+              val = {MB:val.y , name:new Date(val.x).toLocaleTimeString()}
+              acc.push(val)
+          };
+          return acc
+        }, []);
+      }
+      return res;
+    } catch (error) {
+      console.log(error);
     }
-}
+  }
+  
+  getAvgBtcToUsd()
+  
+  async function getAvgBtcToUsd() {
+      try {
+        const response = await (
+          await axios.get(
+            `https://api.blockchain.info/charts/market-price?timespan=5months&format=json&cors=true`
+          )
+        ).data;
+        let res = [];
+        if (response.values.length > 100) {
+           res = response.values.reduce((acc,val, idx) => {
+            if (idx % 10 === 0) {
+                val = {USD:val.y  , name:new Date(val.x).toLocaleTimeString()}
+                delete val.x
+                acc.push(val)
+            };
+            return acc
+          }, []);
+        }
+        return res;
+      } catch (error) {
+        console.log(error);
+      }
+    }

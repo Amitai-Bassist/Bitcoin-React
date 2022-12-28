@@ -2,9 +2,9 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import { AppHeader } from './cmps/AppHeader';
 import { AppFooter } from './cmps/AppFooter';
 
-import logo from './logo.svg';
+
 import './assets/scss/global.scss';
-import {UserDetails} from './cmps/UserDetails'
+
 import {Home} from './views/Home';
 import {ContactIndex} from './views/ContactIndex';
 import {ContactDetails} from './views/ContactDetails';

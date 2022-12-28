@@ -1,19 +1,44 @@
 import { Component } from 'react'
+import {bitcoinService}  from '../services/bitcoin.service'
+import { userService } from '../services/user.service'
  
 export class Home extends Component {
     state = {
-        coins: 100,
-        btc: 0.01570048,
-        user: 'Moshe'
+        user: null,
+        bitcoin: null,
     }
-    componentDidMount(){}
+    async componentDidMount(){
+        this.setUser()
+        
+        
+    }
+
+    async setUser(){
+        const user = userService.getUser()
+        this.setState({ user:user }, () => {
+            console.log(this.state.user)
+          }) 
+        const bitcoin = await bitcoinService.getBitcoin(user.coins)
+        this.setState({ bitcoin: bitcoin }, () => {
+            console.log(this.state)
+          }) 
+    }
+
     render() {
-        const {user, coins, btc} = this.state
+        const {user, bitcoin} = this.state
+        if (!user || !bitcoin) return
         return (
             <section className='container'>
-                <div>Hello {user}!</div>
-                <div>Coins: {coins}</div>
-                <div>BTC: {btc}</div>
+                <div>Hello {user.name}!</div>
+                <div>Coins: {user.coins}</div>
+                <div>BTC: {bitcoin}</div>
+                <h1>Last moves:</h1>
+                <section>
+                    {user.moves.map((move,idx) =>
+                       <div key={move.id}>{idx + 1}. Transferred {move.coins} coins to {move.toContact} at {move.time}</div> 
+                    )}
+                </section>
+
             </section>
         )
     }

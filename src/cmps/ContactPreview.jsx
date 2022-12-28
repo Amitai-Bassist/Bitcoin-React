@@ -8,7 +8,7 @@ export function ContactPreview({ contact, onRemoveContact }) {
     return (
         // <section style={previewStyle} className="contact-preview">
         <section className="contact-preview">
-            <img className="img-preview" src={"https://robohash.org/set_set5/" + contact.name} alt="" />
+            <img className="img-preview" src={`https://robohash.org/set_set5/${contact._id}&80x80`} alt="" />
             <Link to={`/contact/${contact._id}`} className="info">
                 <h2>{contact.name}</h2>
                 <h4>{contact.phone}</h4>
