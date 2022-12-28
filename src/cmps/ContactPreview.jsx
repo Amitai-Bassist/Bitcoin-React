@@ -13,9 +13,12 @@ export function ContactPreview({ contact, onRemoveContact }) {
                 <h2>{contact.name}</h2>
                 <h4>{contact.phone}</h4>
             </Link>
-            <section className="actions">
-                <button onClick={() => onRemoveContact(contact._id)}>X</button>
-                <Link to={`/contact/edit/${contact._id}`}>Edit</Link>
+            <section>
+                <section className="actions">
+                    <button>trasnfer coins</button>
+                    <Link to={`/contact/edit/${contact._id}`}>Edit</Link>
+                    <button onClick={() => onRemoveContact(contact._id)}>X</button>
+                </section>
             </section>
         </section>
     )

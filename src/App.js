@@ -10,6 +10,7 @@ import {ContactIndex} from './views/ContactIndex';
 import {ContactDetails} from './views/ContactDetails';
 import {ContactEdit} from './views/ContactEdit';
 import {BitCoinMarket} from './views/BitCoinMarket';
+import {Loggin} from './views/Loggin';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path="/contact/:id" component={ContactDetails} />
             <Route path="/contact" component={ContactIndex} />
             <Route path="/market" component={BitCoinMarket} />
+            <Route path="/login" component={Loggin} />
             <Route path="/" component={Home} />
           </Switch>
         </main>

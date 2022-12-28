@@ -2,13 +2,14 @@
     display: flex;
     flex-wrap: wrap;
     
-    margin-block: 30px;
-    
+    margin-block: 20px;
+    margin-top: 10px;
     width: 260px;
     height: 40px;
     > input {
         border-top-left-radius: 50px;
         border-bottom-left-radius: 50px;
+        border-bottom: 2px solid black;
         padding-left: 15px;
         border-right: none;
         &:focus-visible{

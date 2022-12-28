@@ -2,6 +2,7 @@
 import { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { ContactFilter } from '../cmps/ContactFilter'
+import { TransferCoins } from '../cmps/TransferCoins'
 import { ContactList } from '../cmps/ContactList'
 import { contactService } from '../services/contact.service'
 // import { ContactDetails } from './ContactDetails'
@@ -53,11 +54,14 @@ export class ContactIndex extends Component {
         if (!contacts) return <div>Loading...</div>
 
         return (
-            <section className='ContactList container'>
-                <ContactFilter onChangeFilter={this.onChangeFilter} filterBy={filterBy}></ContactFilter>
-                <Link to='/contact/edit'>Add Contact</Link>
-                <ContactList history={this.props.history} onRemoveContact={this.onRemoveContact} contacts={contacts} />
-               
+            <section className='grid'>
+                <section className='ContactList container'>
+                    <ContactFilter onChangeFilter={this.onChangeFilter} filterBy={filterBy}></ContactFilter>
+                    <Link to='/contact/edit'>Add Contact</Link>
+                    <ContactList history={this.props.history} onRemoveContact={this.onRemoveContact} contacts={contacts} />
+                
+                </section>
+                <TransferCoins></TransferCoins>
             </section>
         )
     }

@@ -1,26 +1,53 @@
 .contact-preview {
-    background-color: gainsboro;
-    box-shadow: 2px 2px 11px rgb(43 17 74 / 17%);
+    background-color: #1d2f3d;
+    box-shadow: 2px 2px 11px rgba(160, 154, 169, 0.17);
     border-radius: 3px;
     display: flex;
-    width: 60%;
+    width: 500px;
     cursor: pointer;
+    &:hover{
+        box-shadow: 2px 2px 11px rgba(247, 247, 248, 0.263);
 
+    }
     .info {
         padding: 10px;
         flex-grow: 1;
     }
 
     .actions {
+        height: 100%;
         flex-basis: 25%;
         padding: 10px;
-        // background-color: #000000c9;
         display: flex;
-        
         align-items: center;
         opacity: 0;
-        // transform: translateY(100%);
-        // transition: opacitys 0.2s;
+        >*{
+            height: 38px;
+            border-radius: 50px;
+
+        }
+        >:first-child{
+            background-color: #f79413;
+            width: 110px;
+            margin-right: 10px;
+        }
+        >:nth-child(3){
+            
+            background-color: red;
+            width: 38px;
+            
+        }
+        >a{
+            background-color: blue;
+            color: white;
+            width: 60px;
+            margin-right: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding-bottom: 2px;
+            align-content: center;
+            display: flex;
+        }
     }
 
     &:hover .actions {

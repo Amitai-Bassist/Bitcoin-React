@@ -1,0 +1,13 @@
+.login{
+    h1{
+        margin-bottom: 10px;
+    }
+    div{
+        display: grid;
+        grid-template-columns: 100px 150px;
+        margin-bottom: 5px;
+        >label{
+            width: 100px !important;
+        }
+    }
+}

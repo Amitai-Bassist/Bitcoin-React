@@ -1,0 +1,25 @@
+.transfer-coins{
+    position: fixed;
+    top: 165px;
+    right: 50px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #1e3340;
+    >h1{
+        margin-bottom: 15px;
+    }
+    >div{
+        display: grid;
+        grid-template-columns: 100px 1fr;
+    }
+    button{
+        background-color: #f79413;
+        border: none;
+        height: 48px;
+        width: 100px;
+        border-radius: 7px;
+        margin-top: 15px;
+        margin-left: 100px;
+        align-self: center;
+    }
+}
