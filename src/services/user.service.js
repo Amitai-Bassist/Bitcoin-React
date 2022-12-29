@@ -27,6 +27,7 @@ function sendCoins(toContact, coins){
   let user = getUser()
   const move = {coins, toContact, id: makeId(),  time: Date.now()}
   user.moves.push(move)
+  user.coins -= coins
   storageService.store(USER_KEY,user)
 }
 

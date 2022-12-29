@@ -5,7 +5,8 @@ import { userService } from '../services/user.service'
 export class TransferCoins extends Component {
     state = {
         toContact: null,
-        coins: null
+        coins: null,
+        msg: false
     }
 
     componentDidMount(){}
@@ -14,6 +15,7 @@ export class TransferCoins extends Component {
         const {toContact,coins} = this.state
         if (!toContact &!coins) return
         userService.sendCoins(toContact,coins)
+        this.setState({ msg: true})
     }
 
     handleChange = ({ target }) => {
@@ -22,7 +24,7 @@ export class TransferCoins extends Component {
         let value = target.value
         switch (target.type) {
             case 'number':
-                this.setState({ coins: value })
+                this.setState({ coins: value})
                 break;
             case 'text':
                 this.setState({ toContact: value })
@@ -34,18 +36,21 @@ export class TransferCoins extends Component {
 
     render() {
     return (
-        <section className='transfer-coins'>
-            <h1>Transfer BitCoin</h1>
-            <div>
-                <label htmlFor="">To contact</label>
-                <input onChange={this.handleChange} type="text" name='toContact' id='toContact' />
-            </div>
-            <div>
-                <label htmlFor="">coins</label>
-                <input type="number" onChange={this.handleChange} name='coins' id='coins'/>
-            </div>
-            <button onClick={this.sendCoins} className='btn-white'>send</button>
-        </section>
+        <>
+            <section className='transfer-coins'>
+                <h1>Transfer BitCoin</h1>
+                <div>
+                    <label htmlFor="">To contact</label>
+                    <input onChange={this.handleChange} type="text" name='toContact' id='toContact' />
+                </div>
+                <div>
+                    <label htmlFor="">coins</label>
+                    <input type="number" onChange={this.handleChange} name='coins' id='coins'/>
+                </div>
+                <button onClick={this.sendCoins} className='btn-white'>send</button>
+            </section>
+            {this.state.msg? <div className='user-msg'>sent coins successfully</div> : <div></div>}
+        </>
     )
 }
 }
