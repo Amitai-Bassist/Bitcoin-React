@@ -16,6 +16,9 @@ export class TransferCoins extends Component {
         if (!toContact &!coins) return
         userService.sendCoins(toContact,coins)
         this.setState({ msg: true})
+        setTimeout(()=>{
+            this.setState({ msg: false})
+        },1000)
     }
 
     handleChange = ({ target }) => {
