@@ -1,7 +1,8 @@
 import { Component } from 'react'
 import {bitcoinService}  from '../services/bitcoin.service'
 import { userService } from '../services/user.service'
- 
+import bitcoinImg from '../assets/imgs/bitcoin-img.j'
+
 export class Home extends Component {
     state = {
         user: null,
